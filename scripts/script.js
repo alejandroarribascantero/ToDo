@@ -33,38 +33,65 @@ document.addEventListener('DOMContentLoaded', function() {
     formularioTarea.addEventListener('submit', function(event) {
         event.preventDefault();
         const tareaTexto = nuevaTareaInput.value.trim();
+        const fechaFin = document.getElementById('fechaFin').value;
         if (tareaTexto !== "") {
-            const tareaElemento = crearTareaElemento(tareaTexto);
+            const tareaElemento = crearTareaElemento(tareaTexto, fechaFin);
             listaPendiente.appendChild(tareaElemento);
             nuevaTareaInput.value = "";
+            document.getElementById('fechaFin').value = ""; // Limpiar el campo de fecha
             formularioContainer.style.display = "none"; // Ocultar el formulario después de añadir la tarea
         }
     });
 
     // Función para crear un nuevo elemento de tarea
-    function crearTareaElemento(texto) {
+    function crearTareaElemento(texto, fechaFin) {
         const tareaElemento = document.createElement('div');
         tareaElemento.classList.add('tarea');
-        tareaElemento.textContent = texto;
 
-        // Botón para marcar como completado
+        // Contenedor para el texto y la fecha
+        const textoYFechaContenedor = document.createElement('div');
+        textoYFechaContenedor.classList.add('texto-fecha');
+
+        // Elemento para el texto
+        const textoElemento = document.createElement('div');
+        textoElemento.classList.add('nombre-tarea');
+        textoElemento.textContent = texto;
+        textoYFechaContenedor.appendChild(textoElemento);
+
+        // Añadir fecha de fin solo si está presente
+        if (fechaFin) {
+            const fechaElemento = document.createElement('div');
+            fechaElemento.classList.add('fecha-fin');
+            const fecha = new Date(fechaFin);
+            const fechaFormateada = fecha.toLocaleDateString('es', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            fechaElemento.textContent = 'Fecha de Fin: ' + fechaFormateada;
+            textoYFechaContenedor.appendChild(fechaElemento);
+        }
+
+        // Botones de acción
+        const botonesContenedor = document.createElement('div');
+        botonesContenedor.classList.add('botones');
+
         const botonCompletar = document.createElement('button');
         botonCompletar.textContent = 'Completado';
-        botonCompletar.classList.add('btnCompletado'); // Agregar clase para estilizar
+        botonCompletar.classList.add('btnCompletado');
         botonCompletar.addEventListener('click', function() {
             moverTareaACompletado(tareaElemento);
         });
 
-        // Botón para eliminar la tarea
         const botonEliminar = document.createElement('button');
         botonEliminar.textContent = 'Eliminar';
-        botonEliminar.classList.add('btnEliminar'); // Agregar clase para estilizar
+        botonEliminar.classList.add('btnEliminar');
         botonEliminar.addEventListener('click', function() {
             tareaElemento.remove();
         });
 
-        tareaElemento.appendChild(botonCompletar);
-        tareaElemento.appendChild(botonEliminar);
+        botonesContenedor.appendChild(botonCompletar);
+        botonesContenedor.appendChild(botonEliminar);
+
+        // Añadir contenedores al elemento de tarea
+        tareaElemento.appendChild(textoYFechaContenedor);
+        tareaElemento.appendChild(botonesContenedor);
 
         return tareaElemento;
     }

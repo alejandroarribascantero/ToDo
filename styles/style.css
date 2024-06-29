@@ -86,8 +86,32 @@ h3{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Alinea los hijos a los extremos */
+    align-items: center; /* Alinea los hijos verticalmente en el centro */
+}
+
+.texto-fecha {
+    flex-grow: 1; /* Permite que el contenedor de texto y fecha ocupe el espacio disponible */
+    display: flex;
+    flex-direction: column; /* Organiza el texto y la fecha en columnas */
+}
+
+.texto-fecha .nombre-tarea {
+    font-size: 16px; /* Tamaño de fuente más grande para el nombre */
+    font-weight: bold; /* Texto en negrita para destacar el nombre */
+    color: #333; /* Color oscuro para mejor legibilidad */
+    margin-bottom: 5px; /* Espacio entre el nombre y la fecha */
+}
+
+.texto-fecha .fecha-fin {
+    font-size: 14px; /* Tamaño de fuente más pequeño para la fecha */
+    color: #666; /* Color más claro para la fecha */
+    font-style: italic; /* Estilo cursiva para la fecha */
+}
+
+.botones {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
 }
 
 .tarea button {
