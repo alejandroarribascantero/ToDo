@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const fechaFin = document.getElementById('fechaFin').value;
         if (tareaTexto !== "") {
             const tareaElemento = crearTareaElemento(tareaTexto, fechaFin);
-            listaPendiente.appendChild(tareaElemento);
             nuevaTareaInput.value = "";
             document.getElementById('fechaFin').value = ""; // Limpiar el campo de fecha
             formularioContainer.style.display = "none"; // Ocultar el formulario después de añadir la tarea
@@ -93,7 +92,33 @@ document.addEventListener('DOMContentLoaded', function() {
         tareaElemento.appendChild(textoYFechaContenedor);
         tareaElemento.appendChild(botonesContenedor);
 
+        // Verificar si la tarea es para hoy
+        if (fechaFin && esHoy(fechaFin)) {
+            const listaMiDia = document.querySelector('#MiDia .Lista');
+            listaMiDia.appendChild(tareaElemento);
+        } else if (fechaFin && esCaducada(fechaFin)) {
+            const listaCaducado = document.querySelector('#Caducado .Lista');
+            listaCaducado.appendChild(tareaElemento);
+        } else {
+            const listaPendiente = document.querySelector('#Pendiente .Lista');
+            listaPendiente.appendChild(tareaElemento);
+        }
+
         return tareaElemento;
+    }
+
+    // Función para verificar si una tarea está caducada
+    function esCaducada(fechaFin) {
+        const hoy = new Date();
+        const fecha = new Date(fechaFin);
+        return fecha < hoy;
+    }
+
+    // Función para verificar si una tarea es para hoy
+    function esHoy(fechaFin) {
+        const hoy = new Date();
+        const fecha = new Date(fechaFin);
+        return fecha.toDateString() === hoy.toDateString();
     }
 
     // Función para mover una tarea a la lista de completados
