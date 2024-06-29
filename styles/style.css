@@ -1,0 +1,122 @@
+body {
+    background-color: rgb(40, 0, 160);
+    text-align: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+h1{
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+#Cuerpo{
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+h3{
+    color: white;
+}
+.Desplegable{
+    cursor: pointer;
+}
+.Lista{
+    display: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#Crear{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 50%;
+    font-size: 36px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+#Crear:hover{
+    transform: scale(1.2);
+}
+
+#formularioContainer {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Oculto por defecto */
+}
+
+#formularioContainer input, #formularioContainer button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#formularioContainer button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+/* Clase para ocultar el contenedor */
+.hidden {
+    display: none;
+}
+
+.tarea {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tarea button {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tarea button:hover {
+    background-color: #ddd;
+}
+/* Estilos específicos para los botones de acción dentro de las tareas */
+
+.tarea .btnEliminar {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+}
+
+.tarea .btnEliminar:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el ratón */
+}
+
+.tarea .btnCompletado {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+.tarea .btnCompletado:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+}
