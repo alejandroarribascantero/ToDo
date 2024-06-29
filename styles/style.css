@@ -91,9 +91,9 @@ h3{
 }
 
 .texto-fecha {
-    flex-grow: 1; /* Permite que el contenedor de texto y fecha ocupe el espacio disponible */
     display: flex;
     flex-direction: column; /* Organiza el texto y la fecha en columnas */
+    align-items: flex-start; /* Alinea el texto y la fecha a la izquierda */
 }
 
 .texto-fecha .nombre-tarea {
