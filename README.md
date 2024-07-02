@@ -1,5 +1,3 @@
-Aquí tienes un ejemplo de un archivo README para tu proyecto:
-
 ```markdown
 # Proyecto ToDo
 
