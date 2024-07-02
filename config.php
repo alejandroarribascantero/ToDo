@@ -1,9 +1,9 @@
 <?php
 // Configuración de la conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "todo";
+$servername = "sql7.freesqldatabase.com";
+$username = "sql7717488";
+$password = "V1fkc5durv";
+$dbname = "sql7717488";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
