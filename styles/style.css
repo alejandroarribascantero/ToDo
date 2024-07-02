@@ -24,7 +24,6 @@ h3{
     cursor: pointer;
 }
 .Lista{
-    
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 5px;
@@ -143,4 +142,28 @@ h3{
 
 .tarea .btnCompletado:hover {
     background-color: #218838; /* Verde más oscuro al pasar el ratón */
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    #Cuerpo {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .tarea {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .botones {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .tarea button {
+        width: 48%;
+        margin-left: 0;
+    }
 }
